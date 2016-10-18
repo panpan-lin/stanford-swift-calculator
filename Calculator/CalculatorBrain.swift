@@ -80,7 +80,10 @@ class CalculatorBrain{
     }
     
     func addToCalculationHistory(lastEntry: String){
-        if (isPartialResult && lastEntry != "="){
+        let unaryOperations = ["√", "sin", "cos"]
+        if unaryOperations.contains(lastEntry) {
+            description = lastEntry + "(" + description + ")"
+        } else if (isPartialResult){
             description = description + String(lastEntry)
         } else if (!isPartialResult && lastEntry != "="){
             description = "(" + description + ")" + String(lastEntry)
