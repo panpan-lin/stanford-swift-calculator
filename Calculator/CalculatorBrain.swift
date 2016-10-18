@@ -12,6 +12,10 @@ class CalculatorBrain{
     
     private var accumulator = 0.0
     
+    var description = ""
+    
+    private var isPartialResult = true
+    
     func setOperand(operand: Double){
         accumulator = operand
     }
@@ -54,6 +58,8 @@ class CalculatorBrain{
             case .Clear:
                 accumulator = 0.0
                 pending = nil
+                description = ""
+                isPartialResult = true
             }
         }
     }
@@ -70,6 +76,12 @@ class CalculatorBrain{
     private struct PendingBinaryOperationInfo {
         var binaryFunction: (Double, Double) -> Double
         var firstOperand: Double
+    }
+    
+    func addToCalculationHistory(lastEntry: String){
+        if (isPartialResult && lastEntry != "="){
+            description = description + String(lastEntry)
+        }
     }
     
     var result: Double{

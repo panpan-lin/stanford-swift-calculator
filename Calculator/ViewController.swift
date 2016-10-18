@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var showResult: UILabel!
     
+    @IBOutlet weak var showCalHist: UILabel!
+    
+    
     @IBAction func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
         if !userInTheMiddleOfTyping {
@@ -40,16 +43,29 @@ class ViewController: UIViewController {
             showResult.text = String(newValue)
         }
     }
+
+    var displayHistory: String{
+        get {
+            return String(showCalHist.text!)!
+        }
+        set {
+            showCalHist.text = String(newValue)
+        }
+    }
+    
     
     @IBAction private func touchConstant(_ sender: UIButton) {
         if userInTheMiddleOfTyping {
             brain.setOperand(operand: displayValue)
+            brain.addToCalculationHistory(lastEntry: String(displayValue))
             userInTheMiddleOfTyping = false
         }
         if let mathematicalSymbol = sender.currentTitle {
             brain.performOperation(symbol: mathematicalSymbol)
+            brain.addToCalculationHistory(lastEntry: sender.currentTitle!)
         }
         displayValue = brain.result
+        displayHistory = brain.description
     }
     
 }
