@@ -31,8 +31,7 @@ class CalculatorBrain{
         "×": Operation.BinaryOperation({ $0 * $1}),
         "÷": Operation.BinaryOperation({ $0 / $1}),
         "±": Operation.UnaryOperation({ -$0 }),
-        "=": Operation.Equals,
-        "C": Operation.Clear
+        "=": Operation.Equals
     ]
 
     private enum Operation {
@@ -40,7 +39,6 @@ class CalculatorBrain{
         case UnaryOperation((Double) -> Double)
         case BinaryOperation((Double, Double) -> Double)
         case Equals
-        case Clear
     }
 
     func performOperation(symbol: String) {
@@ -55,11 +53,7 @@ class CalculatorBrain{
                 pending = PendingBinaryOperationInfo(binaryFunction: function, firstOperand: accumulator)
             case .Equals:
                 executePendingBinaryOperation()
-            case .Clear:
-                accumulator = 0.0
-                pending = nil
-                description = ""
-                isPartialResult = true
+                isPartialResult = false
             }
         }
     }
@@ -69,6 +63,13 @@ class CalculatorBrain{
             accumulator = pending!.binaryFunction(pending!.firstOperand, accumulator)
             pending = nil
         }
+    }
+    
+    func clear(){
+        accumulator = 0.0
+        pending = nil
+        description = ""
+        isPartialResult = true
     }
     
     private var pending: PendingBinaryOperationInfo?
@@ -81,6 +82,9 @@ class CalculatorBrain{
     func addToCalculationHistory(lastEntry: String){
         if (isPartialResult && lastEntry != "="){
             description = description + String(lastEntry)
+        } else if (!isPartialResult && lastEntry != "="){
+            description = "(" + description + ")" + String(lastEntry)
+            isPartialResult = true
         }
     }
     

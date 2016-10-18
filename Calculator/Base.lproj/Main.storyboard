@@ -153,7 +153,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="C"/>
                                 <connections>
-                                    <action selector="touchConstant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ee7-Ib-9aq"/>
+                                    <action selector="clearDisplay" destination="BYZ-38-t0r" eventType="touchUpInside" id="t3o-SX-XjJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJq-kN-cjx">

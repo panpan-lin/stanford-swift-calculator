@@ -14,12 +14,12 @@ class ViewController: UIViewController {
     
     private var userInTheMiddleOfTyping = false
     
-    @IBOutlet weak var showResult: UILabel!
+    @IBOutlet private weak var showResult: UILabel!
     
-    @IBOutlet weak var showCalHist: UILabel!
+    @IBOutlet private weak var showCalHist: UILabel!
     
     
-    @IBAction func touchDigit(_ sender: UIButton) {
+    @IBAction private func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
         if !userInTheMiddleOfTyping {
             if digit != "." {
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         userInTheMiddleOfTyping = true
     }
     
-    var displayValue: Double{
+    private var displayValue: Double{
         get {
             return Double(showResult.text!)!
         }
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         }
     }
 
-    var displayHistory: String{
+    private var displayHistory: String{
         get {
             return String(showCalHist.text!)!
         }
@@ -53,6 +53,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction private func clearDisplay() {
+        brain.clear()
+        updateDisplay()
+    }
     
     @IBAction private func touchConstant(_ sender: UIButton) {
         if userInTheMiddleOfTyping {
@@ -64,6 +68,10 @@ class ViewController: UIViewController {
             brain.performOperation(symbol: mathematicalSymbol)
             brain.addToCalculationHistory(lastEntry: sender.currentTitle!)
         }
+        updateDisplay()
+    }
+    
+    private func updateDisplay(){
         displayValue = brain.result
         displayHistory = brain.description
     }
