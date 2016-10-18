@@ -24,8 +24,8 @@ class CalculatorBrain{
         "cos": Operation.UnaryOperation(cos),
         "+": Operation.BinaryOperation({ $0 + $1}),
         "-": Operation.BinaryOperation({ $0 - $1}),
-        "x": Operation.BinaryOperation({ $0 * $1}),
-        "/": Operation.BinaryOperation({ $0 / $1}),
+        "×": Operation.BinaryOperation({ $0 * $1}),
+        "÷": Operation.BinaryOperation({ $0 / $1}),
         "±": Operation.UnaryOperation({ -$0 }),
         "=": Operation.Equals,
         "C": Operation.Clear

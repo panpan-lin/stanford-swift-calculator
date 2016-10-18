@@ -156,7 +156,7 @@
                                 <frame key="frameInset" minX="166" minY="214" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="x"/>
+                                <state key="normal" title="×"/>
                                 <connections>
                                     <action selector="touchConstant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbx-B6-17c"/>
                                 </connections>
@@ -165,7 +165,7 @@
                                 <frame key="frameInset" minX="204" minY="214" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="/"/>
+                                <state key="normal" title="÷"/>
                                 <connections>
                                     <action selector="touchConstant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8AQ-cS-41T"/>
                                 </connections>
