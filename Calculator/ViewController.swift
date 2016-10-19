@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     private var userInTheMiddleOfTyping = false
     
+    private var savedProgram: CalculatorBrain.PropertyList?
+    
     @IBOutlet private weak var showResult: UILabel!
     
     @IBOutlet private weak var showCalHist: UILabel!
@@ -70,6 +72,17 @@ class ViewController: UIViewController {
             brain.addToCalculationHistory(lastEntry: sender.currentTitle!)
         }
         updateDisplay()
+    }
+    
+    @IBAction func save() {
+        savedProgram = brain.program
+    }
+    
+    @IBAction func resotre() {
+        if savedProgram != nil {
+            brain.program = savedProgram!
+            displayValue = brain.result
+        }
     }
     
     private func updateDisplay(){
