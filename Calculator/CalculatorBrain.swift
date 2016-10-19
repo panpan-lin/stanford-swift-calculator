@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  CalculatorBrain.swift
 //  Calculator
 //
 //  Created by Panpan Lin on 18/10/2016.
