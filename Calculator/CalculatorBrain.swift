@@ -12,7 +12,7 @@ class CalculatorBrain{
     
     private var accumulator = 0.0
     
-    var description = ""
+    var description = " "
     
     private var isPartialResult = true
     
@@ -94,7 +94,7 @@ class CalculatorBrain{
         accumulator = 0.0
         pending = nil
         internalProgram.removeAll()
-        description = ""
+        description = " "
         isPartialResult = true
     }
     
