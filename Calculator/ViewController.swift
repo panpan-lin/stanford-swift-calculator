@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     
     private var userInTheMiddleOfTyping = false
     
+    private var userSettingVar = false
+    
     private var savedProgram: CalculatorBrain.PropertyList?
     
     @IBOutlet private weak var showResult: UILabel!
     
     @IBOutlet private weak var showCalHist: UILabel!
-    
     
     @IBAction private func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
@@ -82,6 +83,30 @@ class ViewController: UIViewController {
         if savedProgram != nil {
             brain.program = savedProgram!
             displayValue = brain.result
+        }
+    }
+    
+    @IBAction func touchSetVar() {
+        userSettingVar = true
+        displayValue = 0.0
+        userInTheMiddleOfTyping = false
+    }
+    
+    @IBAction func touchVar(_ sender: UIButton) {
+        let variableName = sender.currentTitle!
+        if userSettingVar {
+            // not a good implementation, for constant or expression / operand
+            brain.variableValues[variableName] = displayValue
+            userSettingVar = false
+            displayValue = 0
+            displayHistory = " "
+        } else {
+            if (brain.variableValues[variableName] != nil) {
+                displayValue = brain.variableValues[variableName]!
+            } else {
+                displayValue = 0.0
+            }
+            userInTheMiddleOfTyping = true
         }
     }
     

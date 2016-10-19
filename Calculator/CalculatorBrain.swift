@@ -44,6 +44,10 @@ class CalculatorBrain{
 
     }
     
+//    func setOperand(variableName: String){}
+    
+    var variableValues: Dictionary<String, Double> = [:]
+    
     private var operations: Dictionary<String,Operation> = [
         "π": Operation.Constant(M_PI),
         "e": Operation.Constant(M_E),
