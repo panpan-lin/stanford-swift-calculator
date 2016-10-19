@@ -56,6 +56,7 @@ class ViewController: UIViewController {
     @IBAction private func clearDisplay() {
         brain.clear()
         updateDisplay()
+        userInTheMiddleOfTyping = false
     }
     
     @IBAction private func touchConstant(_ sender: UIButton) {
