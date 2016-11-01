@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         calculatorCount += 1
         print("Loaded up a new Calculator (count = \(calculatorCount))")
-        brain.addUnaryOperation(symbol:"Z"){
-            self.showResult.textColor = UIColor.red
+        brain.addUnaryOperation(symbol:"Z"){ [weak weakSelf = self] in
+            weakSelf?.showResult.textColor = UIColor.red
             return sqrt($0)
         }
     }
