@@ -262,7 +262,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v87-wS-ssz">
                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <state key="normal" title="√"/>
+                                                                <state key="normal" title="Z"/>
                                                                 <connections>
                                                                     <action selector="touchConstant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WwE-Vv-1v2"/>
                                                                 </connections>
